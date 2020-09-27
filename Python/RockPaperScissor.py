@@ -1,6 +1,7 @@
 import random
 import sys
 import os
+import time
 
 
 class player:
@@ -20,6 +21,13 @@ class player:
                     continue
             retry = False
         return choice
+
+
+def Welcome():
+    print("\\\\            // ||=====  ||       |||||||||      =====        ||\\\\ //||   ||||||||||")
+    print(" \\\\          //  ||_____  ||       ||||         //      \\\\     ||  \\// ||   ||________")
+    print("  \\\\  //\\\\  //   ||       ||      |||||         \\\\     //      ||       ||   ||        ")
+    print("   \\\\//  \\\\//    ||=====  |||||||  ||||||||||      ====        ||       ||   ||||||||||")
 
 def Result(player1 = 0, player2 = 0):
     if (player1 == 0) or (player == 0):
@@ -48,18 +56,19 @@ def win(result):
     print("\n\n" + "-"*30 + "\n\n")
 
 def AskAgain(play, Bot):
-    print("If You Want To Play Please Click \"y\"\nIf not Press \"n\"\nif You Want To Change player VS Setting Press \"s\"")
+    os.system("cls")
+    print("PLAY -----> \"p\"\nQUIT -----> \"q\"\nSETTING -----> \"s\"")
     try:
         choice = input()
     except:
         print("your Choice was invalid")
         sys.exit(1)
-    if choice == "y" or choice == "Y":
+    if choice == "p" or choice == "P":
         play = True
-    elif choice == "n" or choice == "N":
+    elif choice == "q" or choice == "Q":
         sys.exit(1)
     elif choice == "s" or choice == "S":
-        print("If Play with Bot press \"b\"\nIf Want to Play (Player VS Player) press \"p\"")
+        print("Player VS Bot -----> \"b\"\nPlayer VS Player -----> \"p\"")
         choice = input()
         if choice == "b" or choice == "B":
             Bot = True
@@ -72,11 +81,12 @@ def AskAgain(play, Bot):
     return (play,Bot)
 
 def main(play=True,bot=False):
-
+    Welcome()
     player1 = player()
     player2 = player()
     list = ["","Rock" , "Paper" , "Scissor"]
     while play:
+        time.sleep(2)
         play, bot = AskAgain(play,bot)
         player2choice = player2.Choice(bot)
         player1choice = player1.Choice()
