@@ -5,7 +5,7 @@ import time
 
 
 class player:
-    def Choice(bot=False,god=False):
+    def Choice(self,bot=False):
         retry = True
         while retry is True:
             if bot is True or god is True:
