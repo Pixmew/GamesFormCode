@@ -8,7 +8,7 @@ class player:
     def Choice(self,bot=False):
         retry = True
         while retry is True:
-            if bot is True or god is True:
+            if bot is True:
                 choice = random.choice([1,2,3])
             else:
                 print("Rock --> 1")
